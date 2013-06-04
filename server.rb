@@ -1,7 +1,7 @@
 require 'drb/drb'
 
 # The URI for the server to connect to
-URI="druby://localhost:8787"
+URI="druby://172.20.6.124:8787"
 
 class TimeServer
 

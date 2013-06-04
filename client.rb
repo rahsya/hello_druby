@@ -1,7 +1,7 @@
 require 'drb/drb'
 
 # The URI to connect to
-SERVER_URI="druby://localhost:8787"
+SERVER_URI="druby://172.20.6.124:8787"
 
 # Start a local DRbServer to handle callbacks.
 #
