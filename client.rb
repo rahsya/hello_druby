@@ -1,7 +1,9 @@
 require 'drb/drb'
+require 'yaml'
 
 # The URI to connect to
-SERVER_URI="druby://172.20.6.124:8787"
+config = YAML.load_file('config.yml')
+SERVER_URI = config["server_uri"]
 
 # Start a local DRbServer to handle callbacks.
 #
@@ -12,3 +14,4 @@ DRb.start_service
 
 timeserver = DRbObject.new_with_uri(SERVER_URI)
 puts timeserver.get_current_time
+
