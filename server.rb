@@ -6,11 +6,13 @@ $SAFE = 0 # disable eval() and friends
 # The URI for the server to connect to
 config = YAML.load_file('config.yml')
 URI = config["server_uri"] 
-puts URI
+
+puts "Listening on #{URI} ..."
 
 class TimeServer
 
   def get_current_time
+    puts "Sending out current time ..."
     return Time.now
   end
 
