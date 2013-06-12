@@ -1,5 +1,6 @@
 require 'drb/drb'
 require 'yaml'
+require './common.rb'
 
 $SAFE = 0 # disable eval() and friends
 
@@ -9,18 +10,10 @@ URI = config["server_uri"]
 
 puts "Listening on #{URI} ..."
 
-class TimeServer
-
-  def get_current_time
-    puts "Sending out current time ..."
-    return Time.now
-  end
-
-end
-
 # The object that handles requests on the server
-FRONT_OBJECT = TimeServer.new
+FRONT_OBJECT = TaskLibrary::Server.new
 
 DRb.start_service(URI, FRONT_OBJECT)
+
 # Wait for the drb server thread to finish before exiting.
 DRb.thread.join
